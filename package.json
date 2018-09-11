@@ -1,0 +1,19 @@
+{
+  "name": "bidsterokeefekostak",
+  "version": "0.0.1",
+  "description": "This a wed app that allows users to create auctions for services",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidokeefe27/BidsterOkeefeKostak.git"
+  },
+  "author": "David OKeefe, Josh Kostak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidokeefe27/BidsterOkeefeKostak/issues"
+  },
+  "homepage": "https://github.com/davidokeefe27/BidsterOkeefeKostak#readme"
+}
