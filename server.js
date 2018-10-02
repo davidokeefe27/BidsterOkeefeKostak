@@ -12,9 +12,12 @@ app.get('/', function (req, res) {
   res.render('index')
 })
 
-
 app.get('/about', function (req, res) {
   res.render('BidsterAboutPage')
+})
+
+app.get('/create', function (req, res) {
+  res.render('BidsterCreateAuction')
 })
 
 app.get('/auction', function (req, res) {
