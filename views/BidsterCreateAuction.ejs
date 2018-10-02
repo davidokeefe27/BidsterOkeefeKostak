@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html>
@@ -17,17 +18,32 @@
 </head>
 <body>
     <div class="jumbotron text-center">
-        <h1>Auction Page</h1>
-        <p>It's time to get to work! Find a job you would like to bid on or create your own Auction!</p>
+        <h1>Create Your Auction</h1>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <div>
-                <h3><center>Open Auctions</center></h3>
-                <p><center>(List of auctions Bidsters may bid on)</center></p>
-            </div>
-        </div>
-    </div>
+    <p>
+        <label>Your Username</label>
+        <input type = "text"
+               id = "Username" />
+      </p>
+    <p>
+        <label>Job Title</label>
+        <input type = "text"
+               id = "Title"/>
+      </p>
+
+      <p>
+        <label>Description of Job</label>
+        <input type = "text"
+               id = "description"/>
+      </p>
+      <p>
+        <label>Starting Offer  $</label>
+        <input type = "number"
+               min = "0.00"
+               id = "StartingOffer"/>
+      </p>
+
 </body>
 </html>
+<!--<a href="HomeButton.css" class="myButton"> Bidster </a>-->
