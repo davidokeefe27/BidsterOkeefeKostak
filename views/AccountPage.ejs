@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html>
@@ -10,11 +9,9 @@
             color: black;
         }
 
-        .create {
-            border-radius: 5px;
-            background-color: green;
-            color: black;
-        }
+        .boxed {
+            border: 1px solid black ;
+        } 
         </style>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -30,33 +27,23 @@
 </head>
 <body>
     <div class="jumbotron text-center">
-        <h1>Create Your Auction</h1>
+        <h1>(username)</h1>
     </div>
 
-    <p>
-        <label>Your Username</label>
-        <input type = "text"
-               id = "Username" />
-      </p>
-    <p>
-        <label>Job Title</label>
-        <input type = "text"
-               id = "Title"/>
-      </p>
-
-      <p>
-        <label>Description of Job</label>
-        <input type = "text"
-               id = "description"/>
-      </p>
-      <p>
-        <label>Starting Offer  $</label>
-        <input type = "number"
-               min = "0.00"
-               id = "StartingOffer"/>
-      </p>
-      <a type = button href="" class="btn create" 
-      position: absolute; top: 10px; right: 10px;>Create</a>
+    <div class="container">
+        <div class="row">
+                <div style="float: right">Jobs Completed:</div>
+                <div style="margin: 0 auto; width: 100px;">(Users Description)</div>
+            <div>
+                    <p>Work Order History</p>
+                    <p class="boxed"> 
+                        (AuctionName)   (Auctioneer username)
+                    </p>
+                    <p class="boxed"> 
+                            (AuctionName2)   (Auctioneer username2)
+                    </p>
+                </div>
+        </div>
+    </div>
 </body>
 </html>
-<!--<a href="HomeButton.css" class="myButton"> Bidster </a>-->

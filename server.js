@@ -40,6 +40,18 @@ app.get('/auction', function (req, res) {
  res.render('BidsterAuctionPage')
 })
 
+app.get('/bidding', function (req, res) {
+  res.render('BiddingPage')
+ })
+
+ app.get('/myauction', function (req, res) {
+  res.render('MyAuctionPage')
+ })
+
+ app.get('/account', function (req, res) {
+  res.render('AccountPage')
+ })
+
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
 })

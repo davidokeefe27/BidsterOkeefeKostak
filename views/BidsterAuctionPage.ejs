@@ -8,6 +8,16 @@
             background-color: slategray;
             color: black;
         }
+
+        .bid {
+            border-radius: 5px;
+            background-color: green;
+            color: black;
+        }
+
+        .boxed {
+            border: 1px solid black ;
+        } 
         </style>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -31,7 +41,15 @@
         <div class="row">
             <div>
                 <h3><center>Open Auctions</center></h3>
-                <p><center>(List of auctions Bidsters may bid on)</center></p>
+                <div style="margin: 0 auto; width: 100px;">
+                    <p  class = "boxed" style = "color:grey">search</p>
+                </div>
+                <div>
+                        <p class="boxed">
+                            <a type = button href="http://localhost:3000/bidding" class="btn bid">BID</a> 
+                            (AuctionName)   (Auctioneer)   (Starting Price)   (LowestPrice)
+                        </p>
+                    </div>
             </div>
         </div>
     </div>

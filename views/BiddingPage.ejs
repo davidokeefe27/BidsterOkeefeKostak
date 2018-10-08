@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html>
@@ -7,12 +6,6 @@
         .btn {
             border-radius: 5px;
             background-color: slategray;
-            color: black;
-        }
-
-        .create {
-            border-radius: 5px;
-            background-color: green;
             color: black;
         }
         </style>
@@ -30,33 +23,25 @@
 </head>
 <body>
     <div class="jumbotron text-center">
-        <h1>Create Your Auction</h1>
+        <h1>*JOB TITLE*</h1>
     </div>
 
-    <p>
-        <label>Your Username</label>
-        <input type = "text"
-               id = "Username" />
-      </p>
-    <p>
-        <label>Job Title</label>
-        <input type = "text"
-               id = "Title"/>
-      </p>
-
-      <p>
-        <label>Description of Job</label>
-        <input type = "text"
-               id = "description"/>
-      </p>
-      <p>
-        <label>Starting Offer  $</label>
-        <input type = "number"
-               min = "0.00"
-               id = "StartingOffer"/>
-      </p>
-      <a type = button href="" class="btn create" 
-      position: absolute; top: 10px; right: 10px;>Create</a>
+    <div class="container">
+        <div class="row">
+            <div>
+                <p><center>(Auctioneers account ID)</center></p>
+                <p><center>(description of job)</center></p>
+                <p style = "color:red">($original price)</p>
+                <p style = "color:green">($lowest bid so far)</p>
+                <p>(time:posted)</p>
+                <p>
+                        <label>Place Your Bid</label>
+                        <input type = "number"
+                                min = "0.00"
+                               id = "BidstersBid" />
+                      </p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
-<!--<a href="HomeButton.css" class="myButton"> Bidster </a>-->
