@@ -18,7 +18,9 @@
   "homepage": "https://github.com/davidokeefe27/BidsterOkeefeKostak#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "ejs": "^2.6.1"
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.3"
   },
   "devDependencies": {
     "mongoose": "^5.3.1"
