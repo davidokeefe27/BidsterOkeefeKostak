@@ -22,6 +22,8 @@ exports.product_create = function (req, res) {
     })
 };
 
+
+
 exports.auction_create = function (req, res) {
     var auction = new Auction(
         {

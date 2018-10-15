@@ -55,8 +55,36 @@
                min = "0.00"
                id = "StartingOffer"/>
       </p>
-      <a type = button href="" class="btn create" 
-      position: absolute; top: 10px; right: 10px;>Create</a>
+      <button onclick="submit()" href="javascript:;">Create</button>
 </body>
+<script>
+    function submit(){
+        var PTitle = document.getElementById('Title');
+        var PDesc = document.getElementById('description');
+        var POffer = document.getElementById('StartingOffer');
+
+        var jsonForm =JSON.stringify({"title" : PTitle.value, "offer": Number(POffer.value), "description":PDesc.value});
+        alert(jsonForm);
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:3000/products/createAuction",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "cache-control": "no-cache",
+                "Postman-Token": "1a76cfa8-3fa7-44dc-a41b-820b679cf14e"
+            },
+            "processData": false,
+            "data": jsonForm
+        }
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+
+    }
+
+</script>
 </html>
 <!--<a href="HomeButton.css" class="myButton"> Bidster </a>-->
