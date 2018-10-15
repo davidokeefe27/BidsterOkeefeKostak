@@ -40,3 +40,13 @@ exports.auction_create = function (req, res) {
         res.send('Auction Created successfully')
     })
 };
+
+exports.auction_details = function (req, res) {
+    Auction.find(function (err, auction) {
+
+        if (err) return next(err);
+
+        res.send(auction);
+
+    })
+};
