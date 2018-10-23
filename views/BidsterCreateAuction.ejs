@@ -55,6 +55,11 @@
                min = "0.00"
                id = "StartingOffer"/>
       </p>
+      <p>
+        <label>Category of Job</label>
+        <input type = "text"
+               id = "category"/>
+      </p>
       <button onclick="submit()" href="javascript:;">Create</button>
 </body>
 <script>
@@ -62,8 +67,9 @@
         var PTitle = document.getElementById('Title');
         var PDesc = document.getElementById('description');
         var POffer = document.getElementById('StartingOffer');
+        var PCaat = document.getElementById('category');
 
-        var jsonForm =JSON.stringify({"title" : PTitle.value, "offer": Number(POffer.value), "description":PDesc.value});
+        var jsonForm =JSON.stringify({"title" : PTitle.value, "offer": Number(POffer.value), "description":PDesc.value, "category":PCaat.value});
         alert("Success!");
         var settings = {
             "async": true,

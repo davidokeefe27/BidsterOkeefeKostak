@@ -58,7 +58,8 @@
                     for(var i=0;i<len;i++){
                         txt += "<thead><tr><td>"+String(data[i].title)
                             +"</td><td>"+String(data[i].description)
-                            +"</td><td>"+String(data[i].offer)+"</td></tr></thead>";
+                            +"</td><td>"+String(data[i].offer)
+                            +"</td><td>"+String(data[i].category)+"</td></tr></thead>";
                 
                     }
                     if(txt != ""){
@@ -91,6 +92,7 @@
                                     <th>Title</th>
                                     <th>Description</th>
                                     <th>Offer</th>
+                                    <th>Category</th>
                                   </tr>
                                 </thead>
                               

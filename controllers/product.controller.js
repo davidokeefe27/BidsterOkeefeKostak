@@ -29,7 +29,8 @@ exports.auction_create = function (req, res) {
         {
             title: req.body.title,
             offer: req.body.offer,
-            description: req.body.description
+            description: req.body.description,
+            category: req.body.category
         }
     );
 
