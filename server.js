@@ -36,9 +36,6 @@ app.get('/auction', function (req, res) {
  res.render('BidsterAuctionPage')
 });
 
-app.get('/bidding', function (req, res) {
-  res.render('BiddingPage')
- });
 
  app.get('/myauction', function (req, res) {
   res.render('MyAuctionPage')
@@ -46,6 +43,11 @@ app.get('/bidding', function (req, res) {
 
  app.get('/account', function (req, res) {
   res.render('AccountPage')
+ });
+
+ //this page has the update/bid fuctinallity
+ app.get('/bidAuction', function (req, res) {
+  res.render('BidAuction')
  });
 
 

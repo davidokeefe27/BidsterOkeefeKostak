@@ -51,3 +51,11 @@ exports.auction_details = function (req, res) {
 
     })
 };
+
+//update function for bidding
+exports.bid_update = function (req, res) {
+    Product.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, product) {
+        if (err) return next(err);
+        res.send('Bid udpated.');
+    });
+};

@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+
+<html>
+    <style>
+    
+        .btn {
+            border-radius: 5px;
+            background-color: slategray;
+            color: black;
+        }
+        </style>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <a type = button href="http://localhost:3000/" class="btn" 
+       position: absolute; top: 10px;>Home</a>
+    <a type = button href="http://localhost:3000/create" class="btn">Create Auction</a>
+    <a type = button href="http://localhost:3000/auction" class="btn" 
+       position: absolute; top: 10px; right: 10px;>Avalible Auctions</a>
+    <a type = button href="http://localhost:3000/about" class="btn" 
+       position: absolute; top: 10px; right: 10px;>About</a>
+</head>
+<body>
+    <div class="jumbotron text-center">
+        <h1>*JOB TITLE*</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div>
+                <p><center>(Auctioneers account ID)</center></p>
+                <p><center>(description of job)</center></p>
+                <p style = "color:red">($original price)</p>
+                <p style = "color:green">($lowest bid so far)</p>
+                <p>(time:posted)</p>
+                <p>
+                        <label>Place Your Bid</label>
+                        <input type = "number"
+                                min = "0.00"
+                               id = "bid" />
+                      </p>
+                      <button onclick="bid()" href="javascript:;">Bid</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    function bid(){
+        var PBid = document.getElementById('bid');
+
+        var jsonForm =JSON.stringify({"bid": Number(POffer.value)});
+        alert("Success!");
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:3000/products/bidAuction",
+            "method": "POST",  //not sure if this should be post or not
+            "headers": {
+                "Content-Type": "application/json",
+                "cache-control": "no-cache",
+                "Postman-Token": "1a76cfa8-3fa7-44dc-a41b-820b679cf14e"
+            },
+            "processData": false,
+            "data": jsonForm
+        }
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+
+    }
+
+</script>
+</html>
