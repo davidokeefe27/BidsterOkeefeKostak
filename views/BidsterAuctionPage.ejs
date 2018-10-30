@@ -73,6 +73,12 @@
         
     </script>
 
+<!-- Solve current problem: Make array of vars, when i create a entry 
+    on the table save the id in the array and in each button declaration 
+    so the button has access to their specific variable, once the modal is 
+    created use the id to get the info -->
+<!--modal in the loop -->
+
 <script language="JavaScript">
     function clic(element)
     {
@@ -102,9 +108,8 @@
       <div class="modal-body">
         <p><center>(Auctioneers account ID)</center></p>
         <p><center>(description of job)</center></p>
-        <p style = "color:red">($original price)</p>
-        <p style = "color:green">($lowest bid so far)</p>
-        <p>(time:posted)</p>
+        <p style = "color:red">Original Price:_____</p>
+        <p style = "color:green">Lowest Bid:_____</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -113,15 +118,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
 
 
     <div class="container">
