@@ -30,9 +30,8 @@
        position: absolute; top: 10px; right: 10px;>Avalible Auctions</a>
     <a type = button href="http://localhost:3000/about" class="btn" 
        position: absolute; top: 10px; right: 10px;>About</a>
-    <script>
-       
-        
+
+    <script>       
        var settings = {
         "async": true,
         "crossDomain": true,
@@ -59,7 +58,10 @@
                         txt += "<thead><tr><td>"+String(data[i].title)
                             +"</td><td>"+String(data[i].description)
                             +"</td><td>"+String(data[i].offer)
-                            +"</td><td>"+String(data[i].category)+"</td></tr></thead>";
+                            +"</td><td>"+String(data[i].category)
+                            +"</td><td>"
+                            + "<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#myModal'>BID</button>"
+                            + "</td></tr></thead>";
                 
                     }
                     if(txt != ""){
@@ -70,12 +72,57 @@
         }
         
     </script>
+
+<script language="JavaScript">
+    function clic(element)
+    {
+       alert("Clicked on " + element.value);
+    }
+</script>
+
 </head>
+
+
 <body>
     <div class="jumbotron text-center">
         <h1>Auction Page</h1>
         <p>It's time to get to work! Find a job you would like to bid on or create your own Auction!</p>
     </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="myModalLabel">(JobTitle)</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p><center>(Auctioneers account ID)</center></p>
+        <p><center>(description of job)</center></p>
+        <p style = "color:red">($original price)</p>
+        <p style = "color:green">($lowest bid so far)</p>
+        <p>(time:posted)</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit Bid</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
 
     <div class="container">
             
