@@ -6,6 +6,7 @@ const product_controller = require('../controllers/product.controller');
 router.post('/createProduct', product_controller.product_create);
 router.post('/createAuction', product_controller.auction_create);
 router.get('/listAuction', product_controller.auction_details);
+router.get('/:id', product_controller.auction_specific);
 
 //update fuction for bidding
 router.put('/bidAuction', product_controller.bid_update);
