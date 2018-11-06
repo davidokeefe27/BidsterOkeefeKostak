@@ -58,20 +58,10 @@ exports.auction_details = function (req, res) {
 };
 
 //update function for bidding
-/*exports.auction_update = function (req, res) {
-    Auction.findByIdAndUpdate(req.params.id, {$set: req.body}, {new:true},
+exports.auction_update = function (req, res) {
+    Auction.findByIdAndUpdate(req.params.id, {$set: req.body},
     function (err, auction) {
         if (err) return next(err);
         res.send(auction);
     });
-};*/
-
-Auction.findById(id, function (err, auction) {
-    if (err) return handleError(err);
-  
-    auction.size = 'large';
-    auction.save(function (err, updatedAuction) {
-      if (err) return handleError(err);
-      res.send(updatedAuction);
-    });
-  });
+};
