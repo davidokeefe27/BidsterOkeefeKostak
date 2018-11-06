@@ -81,11 +81,11 @@
                             + "<p><center>(Auctioneers account ID)</center></p>"
                             + "<p><center>"+ data[j].description +"</center></p>"
                             + "<p style = 'color:red'>Original Offer: $"+ data[j].offer +"</p>"
-                            + "<p style = 'color:green'>Lowest Bid:_____</p>"
+                            + "<label>Your Bid:</label><input type = 'text'id = 'Bid' />"
                             + "</div>"
                             + "<div class='modal-footer'>"
                             + "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>"
-                            + "<button type='button' class='btn btn-primary'>Submit Bid</button>"
+                            + "<button type='button' class='btn btn-primary' id = " + data[j].id + " onclick='submitBid()' href='javascript:;'>Submit Bid</button>"
                             + "</div> </div></div></div>";
                     }
                     if(txt != ""){
@@ -115,6 +115,29 @@
                 }       
             }
         }
+
+        function submitBid(){
+        var PBid = document.getElementById('Bid');
+        var id = document.getElementById('id');
+
+        var jsonForm =JSON.stringify({"Bid" : Number(PBid.value), "id" : id.value});
+        alert("Success!");
+        var settings1 = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:3000/products/"+ id + "/update?offer="+ PBid ,
+            "method": "PUT",
+            "headers": {
+                "cache-control": "no-cache",
+                "Postman-Token": "a7652a1b-f627-4e22-9e73-de6d090f23e8"
+        }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
+    }
         
     </script>
 
