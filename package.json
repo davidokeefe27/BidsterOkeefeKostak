@@ -22,6 +22,6 @@
     "express": "^4.16.4"
   },
   "devDependencies": {
-    "mongoose": "^5.3.9"
+    "mongoose": "^5.3.11"
   }
 }

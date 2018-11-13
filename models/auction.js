@@ -10,3 +10,4 @@ var auctionSchema = new Schema({
 });
 
 module.exports = mongoose.model('Auction', auctionSchema);
+

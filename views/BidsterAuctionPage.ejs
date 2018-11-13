@@ -85,7 +85,7 @@
                             + "</div>"
                             + "<div class='modal-footer'>"
                             + "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>"
-                            + "<button type='button' class='btn btn-primary' id = " + data[j].id + " onclick='submitBid()' href='javascript:;'>Submit Bid</button>"
+                            + "<button type='button' class='btn btn-primary' id2 = " + data[j].id + " onclick='submitBid()' href='javascript:;'>Submit Bid</button>"
                             + "</div> </div></div></div>";
                     }
                     if(txt != ""){
@@ -118,28 +118,33 @@
 
         function submitBid(){
         var PBid = document.getElementById('Bid');
-        var id = document.getElementById('id');
-
+        var id = document.getElementById('id2');
+        
         var jsonForm =JSON.stringify({"Bid" : Number(PBid.value), "id" : id.value});
         alert("Success!");
-        var settings1 = {
+        var settings2 = {
             "async": true,
             "crossDomain": true,
-            "url": "http://localhost:3000/products/"+ id + "/update?offer="+ PBid ,
+            "url": "http://localhost:3000/products/"+ id +"/update/" + PBid,
             "method": "PUT",
             "headers": {
-                "cache-control": "no-cache",
-                "Postman-Token": "a7652a1b-f627-4e22-9e73-de6d090f23e8"
+                 "Content-Type": "application/x-www-form-urlencoded",
+                 "cache-control": "no-cache",
+                 "Postman-Token": "14dc1e40-67a9-4168-abb7-85d3a503e11a"
+            },
+            /*"data": {
+                 "title": "TEST AUCTION"
+            }*/
+            //"data" : jsonForm
         }
-}
 
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
+        $.ajax(settings2).done(function (response) {
+            console.log(response);
+        });
 
-    }
+        }
         
-    </script>
+</script>
 
 <!-- Solve current problem: Make array of vars, when i create a entry 
     on the table save the id in the array and in each button declaration 
