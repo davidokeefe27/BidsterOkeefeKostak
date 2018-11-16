@@ -31,7 +31,8 @@
     <a type = button href="http://localhost:3000/about" class="btn" 
        position: absolute; top: 10px; right: 10px;>About</a>
 
-    <script>       
+    <script>  
+        var idList = [];   
        var settings = {
         "async": true,
         "crossDomain": true,
@@ -52,6 +53,7 @@
         function displayAll(data){
             if(data){
                 var len =data.length;
+                  
                 var txt ="";
                 var txt2 ="";
                 if(len > 0){
@@ -67,7 +69,8 @@
                     }
                     for(var j=0;j<len;j++)
                     {
-                                                
+                        
+                        idList[j] = data[j]._id;                        
                         txt2 += "<div class='modal fade' id='myModal"+j+"' tabindex='-1' role='dialog' aria-labelledby='myModalLabel"+j+"' aria-hidden='true'>"
                             + "<div class='modal-dialog' role='document'>"
                             + "<div class='modal-content'>"
@@ -77,15 +80,19 @@
                             + "<span aria-hidden='true'>&times;</span>"
                             + "</button>"
                             + "</div>"
+                            
+                            //+"<p id = pid"+j+">"+data[j]._id+"<p>"
+                            
                             + "<div class='modal-body'>"
                             + "<p><center>(Auctioneers account ID)</center></p>"
                             + "<p><center>"+ data[j].description +"</center></p>"
-                            + "<p style = 'color:red'>Original Offer: $"+ data[j].offer +"</p>"
-                            + "<label>Your Bid:</label><input type = 'text'id = 'Bid' />"
+                            + "<p style = 'color:red'>Offer: $"+ data[j].offer +"</p>"
+                            + "<label>Your Bid:</label><input type = 'text'id = 'Bid"+j+"' />"
                             + "</div>"
                             + "<div class='modal-footer'>"
                             + "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>"
-                            + "<button type='button' class='btn btn-primary' id2 = " + data[j].id + " onclick='submitBid()' href='javascript:;'>Submit Bid</button>"
+                            //+ "<button type='button' class='btn btn-primary' id2 = " + data[j].id + " onclick='submitBid()' href='javascript:;'>Submit Bid</button>"
+                            + "<button type='button' class='btn btn-primary' onclick='submitBid("+j+")' href='javascript:;'>Submit Bid</button>"
                             + "</div> </div></div></div>";
                     }
                     if(txt != ""){
@@ -115,27 +122,26 @@
                 }       
             }
         }
-
-        function submitBid(){
-        var PBid = document.getElementById('Bid');
-        var id = document.getElementById('id2');
         
-        var jsonForm =JSON.stringify({"Bid" : Number(PBid.value), "id" : id.value});
-        alert("Success!");
+        function submitBid(id){
+        var x = 'Bid'+String(id);
+        var PBid = document.getElementById(x);
+        //var id = document.getElementById('a_id');
+        
+        //alert(idList[id+1]);
+        var jsonForm =JSON.stringify({"Bid" : Number(PBid.value), "id" : idList[id]});
+        //alert("Success!");
         var settings2 = {
             "async": true,
             "crossDomain": true,
-            "url": "http://localhost:3000/products/"+ id +"/update/" + PBid,
+            "url": "http://localhost:3000/products/"+ idList[id] +"/update/" + PBid.value,
             "method": "PUT",
             "headers": {
                  "Content-Type": "application/x-www-form-urlencoded",
                  "cache-control": "no-cache",
                  "Postman-Token": "14dc1e40-67a9-4168-abb7-85d3a503e11a"
             },
-            /*"data": {
-                 "title": "TEST AUCTION"
-            }*/
-            //"data" : jsonForm
+            "data": {}
         }
 
         $.ajax(settings2).done(function (response) {
