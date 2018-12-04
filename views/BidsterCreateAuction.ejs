@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 
 <html>
+
+<!--task bar buttons-->
     <style>
     
         .btn {
@@ -9,13 +11,8 @@
             background-color: slategray;
             color: black;
         }
+    </style>
 
-        .create {
-            border-radius: 5px;
-            background-color: green;
-            color: black;
-        }
-        </style>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -29,7 +26,7 @@
        position: absolute; top: 10px; right: 10px;>About</a>
 </head>
 <body>
-    <div class="jumbotron text-center">
+    <div class="jumbotron text-center" style="background-color:powderblue;">
         <h1>Create Your Auction</h1>
     </div>
 
@@ -44,25 +41,34 @@
                id = "Title"/>
       </p>
 
+      <label>Description of Job</label>
       <p>
-        <label>Description of Job</label>
-        <input type = "text"
-               id = "description"/>
+            <textarea name="text" 
+                    rows="2" 
+                    cols="50" 
+                    wrap="soft" 
+                    type = "text"
+                    id = "description"></textarea>
       </p>
+
       <p>
         <label>Starting Offer  $</label>
         <input type = "number"
                min = "0.00"
                id = "StartingOffer"/>
       </p>
+
       <p>
         <label>Category of Job</label>
         <input type = "text"
                id = "category"/>
       </p>
-      <button onclick="submit()" href="javascript:;">Create</button>
+
+      <button onclick = "submit()" href="javascript:;">Create</button>
 </body>
+
 <script>
+    //used to submit information into our database from user input in this html page
     function submit(){
         var PTitle = document.getElementById('Title');
         var PDesc = document.getElementById('description');
@@ -93,4 +99,3 @@
 
 </script>
 </html>
-<!--<a href="HomeButton.css" class="myButton"> Bidster </a>-->

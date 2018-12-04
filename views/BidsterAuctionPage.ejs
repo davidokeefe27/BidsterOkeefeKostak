@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html>
+    <!--task bar buttons-->
     <style>
     
         .btn {
@@ -31,7 +32,8 @@
     <a type = button href="http://localhost:3000/about" class="btn" 
        position: absolute; top: 10px; right: 10px;>About</a>
 
-    <script>       
+    <script>  
+        var idList = [];   
        var settings = {
         "async": true,
         "crossDomain": true,
@@ -51,10 +53,11 @@
 
         function displayAll(data){
             if(data){
-                var len =data.length;
+                var len =data.length;                
                 var txt ="";
                 var txt2 ="";
                 if(len > 0){
+                    //dynamically create table entries
                     for(var i=0;i<len;i++){
                         txt += "<thead><tr><td>"+String(data[i].title)
                             +"</td><td>"+String(data[i].description)
@@ -65,9 +68,11 @@
                             +"</td></tr></thead>";
 
                     }
+                    //dynamically create Bid buttons with unique modals for each auction
                     for(var j=0;j<len;j++)
                     {
-                                                
+                        
+                        idList[j] = data[j]._id;                        
                         txt2 += "<div class='modal fade' id='myModal"+j+"' tabindex='-1' role='dialog' aria-labelledby='myModalLabel"+j+"' aria-hidden='true'>"
                             + "<div class='modal-dialog' role='document'>"
                             + "<div class='modal-content'>"
@@ -76,16 +81,16 @@
                             + "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>"
                             + "<span aria-hidden='true'>&times;</span>"
                             + "</button>"
-                            + "</div>"
+                            + "</div>"                           
                             + "<div class='modal-body'>"
-                            + "<p><center>(Auctioneers account ID)</center></p>"
                             + "<p><center>"+ data[j].description +"</center></p>"
-                            + "<p style = 'color:red'>Original Offer: $"+ data[j].offer +"</p>"
-                            + "<p style = 'color:green'>Lowest Bid:_____</p>"
+                            + "<p style = 'color:red'>Current Offer: $"+ data[j].offer +"</p>"
+                            + "<label>Your Bid:</label><input type = 'text'id = 'Bid"+j+"' />"
                             + "</div>"
                             + "<div class='modal-footer'>"
                             + "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>"
-                            + "<button type='button' class='btn btn-primary'>Submit Bid</button>"
+                            //+ "<button type='button' class='btn btn-primary' id2 = " + data[j].id + " onclick='submitBid()' href='javascript:;'>Submit Bid</button>"
+                            + "<button type='button' class='btn btn-primary' onclick='submitBid("+j+")' href='javascript:;'>Submit Bid</button>"
                             + "</div> </div></div></div>";
                     }
                     if(txt != ""){
@@ -116,13 +121,33 @@
             }
         }
         
-    </script>
+        //basically and "update" function for the offer field. users may change the current offer when they bid
+        function submitBid(id){
+        var x = 'Bid'+String(id);
+        var PBid = document.getElementById(x);
+        var jsonForm =JSON.stringify({"Bid" : Number(PBid.value), "id" : idList[id]});
+        var settings2 = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:3000/products/"+ idList[id] +"/update/" + PBid.value,
+            "method": "PUT",
+            "headers": {
+                 "Content-Type": "application/x-www-form-urlencoded",
+                 "cache-control": "no-cache",
+                 "Postman-Token": "14dc1e40-67a9-4168-abb7-85d3a503e11a"
+            },
+            "data": {}
+        }
 
-<!-- Solve current problem: Make array of vars, when i create a entry 
-    on the table save the id in the array and in each button declaration 
-    so the button has access to their specific variable, once the modal is 
-    created use the id to get the info -->
-<!--modal in the loop -->
+        $.ajax(settings2).done(function (response) {
+            console.log(response);
+        });
+
+        }
+        
+</script>
+
+
 
 <script language="JavaScript">
     function clic(element)
@@ -135,7 +160,7 @@
 
 
 <body>
-    <div class="jumbotron text-center">
+    <div class="jumbotron text-center" style="background-color:powderblue;">
         <h1>Auction Page</h1>
         <p>It's time to get to work! Find a job you would like to bid on or create your own Auction!</p>
     </div>
