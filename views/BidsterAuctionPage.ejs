@@ -53,6 +53,7 @@
 
         function displayAll(data){
             if(data){
+
                 var len =data.length;                
                 var txt ="";
                 var txt2 ="";
@@ -81,10 +82,13 @@
                             + "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>"
                             + "<span aria-hidden='true'>&times;</span>"
                             + "</button>"
+
                             + "</div>"                           
+
                             + "<div class='modal-body'>"
                             + "<p><center>"+ data[j].description +"</center></p>"
-                            + "<p style = 'color:red'>Current Offer: $"+ data[j].offer +"</p>"
+
+                            + "<p style = 'color:red'>Offer: $"+ data[j].offer +"</p>"
                             + "<label>Your Bid:</label><input type = 'text'id = 'Bid"+j+"' />"
                             + "</div>"
                             + "<div class='modal-footer'>"
@@ -121,11 +125,14 @@
             }
         }
         
-        //basically and "update" function for the offer field. users may change the current offer when they bid
         function submitBid(id){
         var x = 'Bid'+String(id);
         var PBid = document.getElementById(x);
+        //var id = document.getElementById('a_id');
+        
+        //alert(idList[id+1]);
         var jsonForm =JSON.stringify({"Bid" : Number(PBid.value), "id" : idList[id]});
+        //alert("Success!");
         var settings2 = {
             "async": true,
             "crossDomain": true,
@@ -173,7 +180,7 @@
         <div class="row">
             <div>
                 <h3><center>Open Auctions</center></h3>
-                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Category.." title="Type in a name">
                 <div>
                     <div id = "modals"></div>
                         <table data-toggle="table" class="display table table-bordered" id="table">

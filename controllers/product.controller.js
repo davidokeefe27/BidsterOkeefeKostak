@@ -58,9 +58,13 @@ exports.auction_details = function (req, res) {
 };
 
 //update function for bidding
-exports.bid_update = function (req, res) {
-    Auction.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, auction) {
+exports.auction_edit = function (req, res) {
+    //  console.log(req.params);
+    //  return res.send('YUP');
+    // console.log(req.params.title);
+    Auction.findByIdAndUpdate(req.params.id, {$set: {offer: req.params.offer}}, {upsert: true}, 
+        function (err, auction) {
         if (err) return next(err);
-        res.send('Bid udpated.');
+        return res.send('Auction udpated.');
     });
 };

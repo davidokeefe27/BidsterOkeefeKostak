@@ -9,7 +9,7 @@ router.get('/listAuction', product_controller.auction_details);
 router.get('/:id', product_controller.auction_specific);
 
 //update fuction for bidding
-router.put('/bidAuction', product_controller.bid_update);
+router.put('/:id/update/:offer', product_controller.auction_edit);
 
 // a simple test url to check that all of our files are communicating correctly.
 router.get('/test', product_controller.test);
