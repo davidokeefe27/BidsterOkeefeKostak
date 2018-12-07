@@ -87,12 +87,12 @@
 
                             + "<div class='modal-body'>"
                             + "<p><center>"+ data[j].description +"</center></p>"
-
+                            + "<p><center>"+ data[j].email +"</center></p>"
                             + "<p style = 'color:red'>Offer: $"+ data[j].offer +"</p>"
                             + "<label>Your Bid:</label><input type = 'text'id = 'Bid"+j+"' />"
                             + "</div>"
                             + "<div class='modal-footer'>"
-                            + "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>"
+                            + "<button type='button' class='btn btn-secondary' onclick='history.go(0)' data-dismiss='modal'>Close</button>"
                             //+ "<button type='button' class='btn btn-primary' id2 = " + data[j].id + " onclick='submitBid()' href='javascript:;'>Submit Bid</button>"
                             + "<button type='button' class='btn btn-primary' onclick='submitBid("+j+")' href='javascript:;'>Submit Bid</button>"
                             + "</div> </div></div></div>";

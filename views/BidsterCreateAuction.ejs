@@ -31,9 +31,9 @@
     </div>
 
     <p>
-        <label>Your Username</label>
+        <label>Your Email</label>
         <input type = "text"
-               id = "Username" />
+               id = "Email" />
       </p>
     <p>
         <label>Job Title</label>
@@ -74,8 +74,9 @@
         var PDesc = document.getElementById('description');
         var POffer = document.getElementById('StartingOffer');
         var PCaat = document.getElementById('category');
+        var PEmail = document.getElementById('Email');
 
-        var jsonForm =JSON.stringify({"title" : PTitle.value, "offer": Number(POffer.value), "description":PDesc.value, "category":PCaat.value});
+        var jsonForm =JSON.stringify({"title" : PTitle.value, "offer": Number(POffer.value), "description":PDesc.value, "category":PCaat.value, "email":PEmail.value});
         alert("Success!");
         var settings = {
             "async": true,

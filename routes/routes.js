@@ -7,7 +7,7 @@ router.post('/createProduct', product_controller.product_create);
 router.post('/createAuction', product_controller.auction_create);
 router.get('/listAuction', product_controller.auction_details);
 router.get('/:id', product_controller.auction_specific);
-
+router.delete('/:id/delete_auction', product_controller.auction_delete)
 //update fuction for bidding
 router.put('/:id/update/:offer', product_controller.auction_edit);
 

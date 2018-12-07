@@ -30,7 +30,9 @@ exports.auction_create = function (req, res) {
             title: req.body.title,
             offer: req.body.offer,
             description: req.body.description,
-            category: req.body.category
+            category: req.body.category,
+            email: req.body.email
+
         }
     );
 
@@ -67,4 +69,11 @@ exports.auction_edit = function (req, res) {
         if (err) return next(err);
         return res.send('Auction udpated.');
     });
+};
+
+exports.auction_delete = function (req, res){
+    Auction.findByIdAndRemove(req.params.id, function (err){
+        if (err) return next(err);
+        res.send('Deleted successful')
+    })
 };
